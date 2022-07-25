@@ -50,6 +50,40 @@ class MainActivityEspressoTest {
         }
     }
 
+    @Test
+    fun toDetailsActivityButton_EffectiveVisible() {
+        onView(withId(R.id.toDetailsActivityButton)).check(
+            matches(
+                withEffectiveVisibility(
+                    Visibility.VISIBLE
+                )
+            )
+        )
+
+    }
+
+    @Test
+    fun toDetailsActivityButton_TextIsVisible() {
+        onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
+
+    }
+
+    @Test
+    fun activitySearch_isDisplayed() {
+        onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
+
+    }
+
+    @Test
+    fun activitySearch_isCompletelyDisplayed() {
+        onView(withId(R.id.searchEditText)).check(matches(isCompletelyDisplayed()))
+
+    }
+    @Test
+    fun activitySearch_HintIsVisible(){
+        onView(withId(R.id.searchEditText)).check(matches(withHint("Enter keyword e.g. android")))
+    }
+
     @After
     fun close() {
         scenario.close()
